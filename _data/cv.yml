@@ -5,19 +5,12 @@
       value: Morten Willendrup
     - name: Languages
       value: Danish, Englihs
-    - name: Skills
-      value:
-        - Python: ★★★★★
-        - SQL: ★★★★★
-        - VBA: ★★★★★
-        - MS Excel: ★★★★★
-        - R: ★★★
-        - MS PowerBI: ★★★
+
 
 - title: Education
   type: time_table
   contents:
-    - title: Msc
+    - title: Msc. Economics
       institution: University of Copenhagen, Copenhagen, Denmark
       year: 2022
 #      description:
