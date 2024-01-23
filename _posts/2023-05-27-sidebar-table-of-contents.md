@@ -1,16 +1,16 @@
 ---
 layout: post
 title: a post with table of contents on a sidebar
-date: 2023-05-07 10:14:00-0400
-description: an example of a blog post with table of contents on a sidebar
-categories: sample-posts toc sidebar
+date: 2024-01-23 10:14:00-0400
+description: A clear explanation of the Asset Swap spread
+categories: swap interest rate
 giscus_comments: true
 related_posts: false
 toc:
   sidebar: left
 ---
 This post shows how to add a table of contents as a sidebar.
-# This is a copy of the previous
+# A clear explanation of the Asset Swap spread
 ## Adding a Table of Contents
 
 To add a table of contents to a post as a sidebar, simply add
