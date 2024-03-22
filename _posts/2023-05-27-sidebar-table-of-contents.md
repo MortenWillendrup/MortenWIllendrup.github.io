@@ -12,6 +12,7 @@ toc:
 ---
 This post shows how to add a table of contents as a sidebar.
 # A clear explanation of the Asset Swap spread
+# CHECK THIS
 ## Adding a Table of Contents
 
 To add a table of contents to a post as a sidebar, simply add
