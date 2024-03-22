@@ -10,9 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lets talk about Fixed Income Again | </title>
+    <title>Asset Swap Spread - A clear explanation | </title>
     <meta name="author" content="Morten S. Willendrup">
-    <meta name="description" content="Bonds and Interest Rate Derivatives">
+    <meta name="description" content="A clear explanation of the Asset Swap spread">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -31,6 +31,9 @@
     <!-- Code Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
 
+    
+    <!-- Sidebar Table of Contents -->
+    <link href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css" rel="stylesheet">
     
 
     <!-- Styles -->
@@ -113,12 +116,20 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- _layouts/post.html -->
+        
+        <div class="row">
+          <!-- sidebar, which will move to the top on a small screen -->
+          <div class="col-sm-3">
+            <nav id="toc-sidebar" class="sticky-top"></nav>
+          </div>
+          <!-- main content area -->
+          <div class="col-sm-9">
+            <!-- _layouts/post.html -->
 
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Lets talk about Fixed Income Again</h1>
+    <h1 class="post-title">Asset Swap Spread - A clear explanation</h1>
     <p class="post-meta">March 22, 2024</p>
     <p class="post-tags">
       <a href="/blog/2024"> <i class="fas fa-calendar fa-sm"></i> 2024 </a>
@@ -137,10 +148,31 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      
-<blockquote>
-    <a href="https://www.youtube.com/@ComputationsInFinance" rel="external nofollow noopener" target="_blank">Computations In Finance</a>
-</blockquote>
+      <h1 id="asset-swap-introduction">Asset Swap introduction</h1>
+
+<p>Today’s post is going to focus on Asset Swap or more specific about the asset swap spread.</p>
+
+<p>Asset swaps are commonly used instrument in the finance society, which used by institutional investors in order to reduce the risk arising from holding a certain asset (usually a bond).</p>
+
+<p>It happens frequently that an investor, who has just bought a certain bond (for example by participating to a issue of a new bond or to an auction on the primary market), wants to hedge the risk coming from the bond itself. It is well known, indeed, that if you are long of a bond you are indeed short interest rates, in the sense that if they go up the price of your security decreases giving you a negative P&amp;L.</p>
+
+<p>First thing, what the investor could do is to sell another fixed income security trying to remove the sensitivity to interest rates from its portfolio; however this solution is not a perfect hedge because it often implies some sort of basis risk/curve risk between the hedged security and the hedging security.</p>
+
+<p>To get an idea of what I am saying you can just try to hedge a BTP 2.8 01/03/2067 (=46 years to maturity) with the only securities you have in the proximity of the curve, that are the BTP 1.7 01/09/2051 (30y to maturity) and the BTP 2.15 01/03/2072 (51y to maturity).</p>
+
+<p>In the best case you have a 5-year curve exposure which may not seem a lot but it’s enough to make you lose several basis points, especially in the long end of the curve.</p>
+
+<p>Therefore a good alternative, for the investor who has just bought the BTP 2.8 01/03/2067, may be to (asset)swap it!</p>
+
+<p>Notice that this is not the only reason you may want to enter an asset swap, of course.</p>
+
+<p>You may simply want to swap your position from a fixed periodic coupon, to a floating periodic coupon. In any case, whatever are your motivations, you may find this instrument quite interesting.</p>
+
+<h1 id="how-does-the-asset-swap-work">How does the asset swap work?</h1>
+
+<p>An asset swap is similar in structure to a plain vanilla swap with the key difference being the underlying of the swap contract. Rather than regular fixed and floating loan interest rates being swapped, fixed and floating assets are being exchanged.</p>
+
+<p>Let’s try to analyze it sentence by sentence. It is similar to a plain vanilla swap, thus let’s look how this one looks like</p>
 
 
     </div>
@@ -189,6 +221,9 @@
 
 </div>
 
+          </div>
+        </div>
+        
       
     </div>
 
@@ -215,6 +250,9 @@
   <!-- Medium Zoom JS -->
   <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
   <script defer src="/assets/js/zoom.js"></script>
+  <!-- Sidebar Table of Contents -->
+  <script defer src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+
 
   <!-- Bootstrap Table -->
   <script defer src="https://unpkg.com/bootstrap-table@1.21.3/dist/bootstrap-table.min.js"></script>
