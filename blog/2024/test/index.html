@@ -176,6 +176,38 @@
 
 <p>where the fixed payment is given by the Notional of the contract $N$ and the Plain-vanilla Swap rate $R$ relative for the time period</p>
 
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_2-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_2.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+\[\text{Fixed leg}_t\;=\; R \; \times \; N\]
+
+<p>and the floating payment is given by the Notional of the contract (N) and the floating rate ( $r_t$ ), that usually is Euribor or OIS in Europe, relative for the time period</p>
+
+\[\text{Float leg}_t\;=\; r_t \; \times \; N\]
+
+<p>and from the non-arbitrage assumption we know that we can find exactly the value of $R$.</p>
+
+<p>Now, usually institutional investors are those who buy the swap, in the sense that they pay the fixed leg and receive the floating leg (they are said to be buyer because they profit if rates goes up since they receive the floating leg).
+In an asset swap the investor keeps receiving the floating leg and paying the fixed leg (= he gives away the interest rate risk), which…guess…is now exactly the coupon he receives from the asset he owns.</p>
+
+<p>Indeed, in an asset swap the structure is</p>
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
@@ -214,15 +246,6 @@
 
     </div>
 </div>
-
-\[\text{Fixed leg}_t\;=\; R \; \times \; N\]
-
-<p>and the floating payment is given by the Notional of the contract (N) and the floating rate ( $r_t$ ), that usually is Euribor or OIS in Europe, relative for the time period</p>
-
-\[\text{Float leg}_t\;=\; r_t \; \times \; N\]
-
-<p>and from the non-arbitrage assumption we know that we can find exactly the value of $R$.</p>
-
 
     </div>
   </article>
