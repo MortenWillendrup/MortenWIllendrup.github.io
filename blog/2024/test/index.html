@@ -174,7 +174,7 @@
 
 <p>Let’s try to analyze it sentence by sentence. It is similar to a plain vanilla swap, thus let’s look how this one looks like</p>
 
-<p>where the fixed payment is given by the Notional of the contract (N) and the Plain-vanilla Swap rate (R) relative for the time period</p>
+<p>where the fixed payment is given by the Notional of the contract $N$ and the Plain-vanilla Swap rate $R$ relative for the time period</p>
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -182,13 +182,13 @@
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/8-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/8-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/8-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_2-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/Asset_Swap_2.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -200,13 +200,13 @@
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/10-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/10-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/10-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_2-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_2-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_2-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/Asset_Swap_2.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -216,6 +216,13 @@
 </div>
 
 \[\text{Fixed leg}_t\;=\; R \; \times \; N\]
+
+<p>and the floating payment is given by the Notional of the contract (N) and the floating rate ( $r_t$ ), that usually is Euribor or OIS in Europe, relative for the time period</p>
+
+\[\text{Float leg}_t\;=\; r_t \; \times \; N\]
+
+<p>and from the non-arbitrage assumption we know that we can find exactly the value of $R$.</p>
+
 
     </div>
   </article>
