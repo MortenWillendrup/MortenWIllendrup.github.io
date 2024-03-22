@@ -1,9 +1,10 @@
 ---
 layout: post
-title: a post with table of contents on a sidebar
-date: 2024-01-23 10:14:00-0400
+title: Asset Swap Spread - A clear explanation
+date: 2024-03-22 10:14:00-0400
 description: A clear explanation of the Asset Swap spread
-categories: swap interest rate
+categories: Fixed Income
+thumbnail: assets/img/Asset_Swap_front.jpg
 giscus_comments: true
 related_posts: false
 toc:
