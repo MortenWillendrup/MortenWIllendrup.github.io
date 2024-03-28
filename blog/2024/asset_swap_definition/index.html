@@ -158,7 +158,7 @@
 
 <p>Asset swaps are commonly used instrument in the finance society, which used by institutional investors in order to reduce the risk arising from holding a certain asset (usually a bond).</p>
 
-<p>It happens frequently that an investor, who has just bought a certain bond (for example by participating to a issue of a new bond or to an auction on the primary market), wants to hedge the risk coming from the bond itself. It is well known, indeed, that if you are long of a bond you are indeed short interest rates, in the sense that if they go up the price of your security decreases giving you a negative P&amp;L.</p>
+<p>It happens frequently that an investor, who has just bought a certain bond (for example by participating in an issuance of a new bond or to an auction on the primary market), wants to hedge the risk coming from the bond itself. It is well known, indeed, that if you are long of a bond you are indeed short interest rates, in the sense that if they go up the price of your security decreases giving you a negative P&amp;L.</p>
 
 <p>First thing, what the investor could do is to sell another fixed income security trying to remove the sensitivity to interest rates from its portfolio; however this solution is not a perfect hedge because it often implies some sort of basis risk/curve risk between the hedged security and the hedging security.</p>
 
@@ -178,9 +178,10 @@
 
 <p>Let’s try to analyze it sentence by sentence. It is similar to a plain vanilla swap, thus let’s look how this one looks like</p>
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+<p>where the fixed payment is given by the Notional of the contract $N$ and the Plain-vanilla Swap rate $R$ relative for the time period</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
 
   <picture>
     
@@ -196,12 +197,193 @@
 
 </figure>
 
-    </div>
 </div>
 
-<p>where the fixed payment is given by the Notional of the contract (N) and the Plain-vanilla Swap rate (R) relative for the time period</p>
-
 \[\text{Fixed leg}_t\;=\; R \; \times \; N\]
+
+<p>and the floating payment is given by the Notional of the contract (N) and the floating rate ( \(r_t\) ), that usually is Euribor or OIS in Europe, relative for the time period</p>
+
+\[\text{Float leg}_t\;=\; r_t \; \times \; N\]
+
+<p>and from the non-arbitrage assumption we know that we can find exactly the value of $R$.</p>
+
+<p>Now, usually institutional investors are those who buy the swap, in the sense that they pay the fixed leg and receive the floating leg (they are said to be buyer because they profit if rates goes up since they receive the floating leg).
+In an asset swap the investor keeps receiving the floating leg and paying the fixed leg (= he gives away the interest rate risk), which…guess…is now exactly the coupon he receives from the asset he owns.</p>
+
+<p>Indeed, in an asset swap the structure is</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_3-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_3-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_3-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_3.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+<p>where the fixed payment is given by the Notional of the contract ($N$) and the <strong>Coupon</strong> rate (\(c\)) of the asset the investor wants to asset-swap</p>
+
+\[\text{Fixed leg}_t\;=\; c \; \times \; N\]
+
+<p>and the floating payment is given by the Notional of the contract ($N$) and the floating rate (\(r_t\)) plus the asset swap spread ($A$)</p>
+
+\[\text{Float leg}_t\;=\; \left(r_t+A\right) \; \times \; N\]
+
+<p>and from the non-arbitrage assumption we will see that we can find exactly the value that \(A\) must take.</p>
+
+<h2 id="bit-of-intuition">bit of intuition</h2>
+
+<p>Try to take the point of view of a market making bank which is everyday running its business of selling plain-vanilla swap, where it pays the periodic floating rate and receive the Swap spread ($R$) from its clients. Assume the swap rate is $R= 0.5$ semi-annual.</p>
+
+<h3 id="the-investors-interaction-with-the-bank">The investor’s interaction with the bank</h3>
+
+<p><strong>INVESTOR</strong>: “Hey look, I just bought this BTP 2.15 01/3/2067 that is paying me this 1.075 (2.15/2) each semester and I don’t really know what to do with it, especially beacuse I fear interest rates are going up”</p>
+
+<p><strong>BANK</strong>: “so what? Would you like to receive Euribor then? So that if rates go up your cash flow increases”</p>
+
+<p><strong>INVESTOR</strong>: “Yes. i’d love to!”</p>
+
+<p><strong>BANK</strong>: “ok dude, I’ll pay you Euribor 6-month at every date your BTP pays its coupons and you give the coupons to me. Sounds like a great deal…I take the fixed coupons and so the risk of rates going up and you’ll have your floating rate.”</p>
+
+<p><strong>INVESTOR</strong>: “well not really…my BTP pays a 6-month coupon of 1.075, which I must give to you, and in return you give me back only the Euribor? To your clients on plain-vanilla swaps you are paying the Euribor rate every 6 months and they’re paying you only a fixed swap rate of 0.5. Why should I pay you 1.075 if they pay 0.5, if we receive the same?”</p>
+
+<p><strong>BANK</strong>: “ok, fine..fine…I’ll add up to that a fixed asset swap spread”</p>
+
+<p>And that is basically how we arrived to $\text{FLoat Leg}_t = \left(r_t + A\right) \times N$</p>
+
+<h4 id="two-cases">Two cases</h4>
+
+<h5 id="coupon-greater-than-the-current-swap-rate">Coupon greater than the current swap rate</h5>
+
+<p>We can therefore imagine two different cases. In the first one, where the investor wants to asset-swap a bond which has a coupon greater than the current swap rate ($c &gt; R$), the bank must add-up a positive asset swap spread to the floating leg, in order to compensate the fact that the investor is paying an higher fixed coupon (with respective to the investor on the plain vanilla swap).</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_4-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_4-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_4-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_4.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+<p>In the “mezzanine” case where the bond’s coupon is exactly equal to the swap rate (R) the bank must not add anything since the structure is exactly equal to the plain-vanilla case.</p>
+
+<h5 id="coupon-lower-than-the-current-swap-rate">Coupon lower than the current swap rate</h5>
+
+<p>In the case in which the bond has a very small coupon, below the swap rate ( c &lt; R) the bank should charge a negative asset swap spread to the investor, meaning decrease the Euribor rate which pays to the client. Notice however that this is mostly an academic situation since bond’s coupons are floored at zero, even in a negative rates environment</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_5-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_5-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_5-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_5.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+<p>he main takeaway from this paragraph should be that the asset swap spread is a flexible amount which depends on the bond the investor wants to swap and that its first driver is the difference between the coupon rate (c) of the bond and the prevalent swap rate (R).</p>
+
+<p>Is that all? Unfortunately no, there is another component which influence the asset swap spread, but for the moment we can write</p>
+
+\[A\;=\; \left(c-R\right)+\text{Something}\]
+
+<h3 id="the-present-value-of-a-zero-one">The Present Value of a zero-one</h3>
+
+<p>To give you a bit of time to digest what we have said in the paragraphs above, I am going to review the concept of PV01.</p>
+
+<p>We all know the definition of DV01 (if not you can have a look at here), which is the monetary change in the price of a bond given by a shift of 1 basis point in yield.</p>
+
+<p>PV01 is a very similar concept which relates to coupons instead. Indeed it is the monetary change in the price of a bond given by a shift of 1 basis point in coupon.</p>
+
+<p>Starting from the formula to price (i.e. to discount) fixed known cash flows we can write</p>
+
+<p>\begin{equation}
+\label{eq:risk-free_discounting}
+ P_{rf}\;=\; \frac{\sum{c \times N}}{(1+r_t)^t} + \frac{c\times N+N}{(1+r_T)^T}
+\end{equation}</p>
+
+<p>that is the theoretical price we should have if we discount all the cash flows using the risk free rate (\(r\)). However we are well aware of the fact that this is not the price we observe on the market because of credit and liquidity issues. Therefore we may use the yield to maturity (y)</p>
+
+\[P_{ytm}\;=\; \frac{\sum{c \times N}}{(1+y_t)^t} + \frac{c\times N+N}{(1+y_T)^T}\]
+
+<p>or the zeta spread, that is an additional curve which accounts for the riskiness of the bond</p>
+
+\[P_{zs}\;=\; \frac{\sum{c \times N}}{(1+r_t+z_t)^t} + \frac{c\times N+N}{(1+r_T+z_T)^T}\]
+
+<p>in any case it is obvious that \(P_{ytm}\;=\;P_{zs}\;=\;P_{Observed}\)</p>
+
+<p>Starting from these formulas we can increase the value of the coupon rate by one basis point, setting a new \(c_1 = c+0.01\) and see how the price changes. The PV01 is this change in price.</p>
+
+<p>Using formula \eqref{eq:risk-free_discounting} which then becomes</p>
+
+<p>\begin{equation}
+\label{eq:risk-free_discounting_pv01}
+P^{1}_{rf}\;=\; \frac{\sum{c_1 \times N}}{(1+r_t)^t} + \frac{c_1\times N+N}{(1+r_T)^T}
+\end{equation}</p>
+
+<p>using \eqref{eq:risk-free_discounting} and \eqref{eq:risk-free_discounting_pv01}, we can define \(PV01=P^{1}_{rf}-P_{rf)\) and with some algebractic adjustments we get</p>
+
+<p>\begin{equation}
+\label{eq:pv01<em>rf}
+PV01</em>{rf}\;=\; \sum{0.1}\frac{1}{(1+r_t)^t}
+\end{equation}</p>
+
+<h2 id="the-last-step">The Last Step</h2>
+
+<p>In Asset Swap, like in every other swap, the value at inception for the two parties must be null (if one side of the trade was more convenient than the other it wouldn’t be possible to close the trade, since everybody would want to sit on that side, on average). Therefore the value of the two legs must be equal.</p>
+
+<p>To determine the exact value of both legs, let’s analyse more in deep the flows behind the asset swap.</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_7-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_7-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_7-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_7.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+<p>The investor has bought a bond at the dirty price (\(P_{ytm}\)), receives the coupons which forwards to the Bank but must also give to the bank the amount \(N-P_{ytm}\) (usually N=100).</p>
 
 
     </div>
