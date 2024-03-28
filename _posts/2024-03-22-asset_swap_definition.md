@@ -100,7 +100,7 @@ Try to take the point of view of a market making bank which is everyday running 
 
 **BANK**: “ok, fine..fine…I’ll add up to that a fixed asset swap spread”
 
-And that is basically how we arrived to $\text{FLoat Leg}_t = \left(r_t + A\right) \times N$
+And that is basically how we arrived to $$\text{FLoat Leg}_t = \left(r_t + A\right) \times N$$
 
 #### Two cases
 
@@ -112,17 +112,17 @@ We can therefore imagine two different cases. In the first one, where the invest
     {% include figure.html path="assets/img/Asset_Swap_4.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 
-In the “mezzanine” case where the bond’s coupon is exactly equal to the swap rate (R) the bank must not add anything since the structure is exactly equal to the plain-vanilla case.
+In the “mezzanine” case where the bond’s coupon is exactly equal to the swap rate ($$R$$) the bank must not add anything since the structure is exactly equal to the plain-vanilla case.
 
 ##### Coupon lower than the current swap rate
 
-In the case in which the bond has a very small coupon, below the swap rate ( c < R) the bank should charge a negative asset swap spread to the investor, meaning decrease the Euribor rate which pays to the client. Notice however that this is mostly an academic situation since bond’s coupons are floored at zero, even in a negative rates environment
+In the case in which the bond has a very small coupon, below the swap rate ($$c < R$$) the bank should charge a negative asset swap spread to the investor, meaning decrease the Euribor rate which pays to the client. Notice however that this is mostly an academic situation since bond’s coupons are floored at zero, even in a negative rates environment
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/Asset_Swap_5.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 
-he main takeaway from this paragraph should be that the asset swap spread is a flexible amount which depends on the bond the investor wants to swap and that its first driver is the difference between the coupon rate (c) of the bond and the prevalent swap rate (R).
+he main takeaway from this paragraph should be that the asset swap spread is a flexible amount which depends on the bond the investor wants to swap and that its first driver is the difference between the coupon rate ($$c$$) of the bond and the prevalent swap rate ($$R$$).
 
 Is that all? Unfortunately no, there is another component which influence the asset swap spread, but for the moment we can write
 
@@ -134,7 +134,7 @@ $$
 
 To give you a bit of time to digest what we have said in the paragraphs above, I am going to review the concept of PV01.
 
-We all know the definition of DV01 (if not you can have a look at here), which is the monetary change in the price of a bond given by a shift of 1 basis point in yield.
+We all know the definition of DV01 (if not you can have a look at here), which is the monetary change in the price of a bond given by a shift of 1 basis point in yield. 
 
 PV01 is a very similar concept which relates to coupons instead. Indeed it is the monetary change in the price of a bond given by a shift of 1 basis point in coupon.
 
@@ -171,7 +171,7 @@ Using formula \eqref{eq:risk-free_discounting} which then becomes
 P^{1}_{rf}\;=\; \frac{\sum{c_1 \times N}}{(1+r_t)^t} + \frac{c_1\times N+N}{(1+r_T)^T}
 \end{equation}
 
-using \eqref{eq:risk-free_discounting} and \eqref{eq:risk-free_discounting_pv01}, we can define $$PV01=P^{1}_{rf}-P_{rf)$$ and with some algebractic adjustments we get
+using \eqref{eq:risk-free_discounting} and \eqref{eq:risk-free_discounting_pv01}, we can define $$PV01=P^{1}_{rf}-P_{rf)$$ and with some algebraic adjustments we get
 
 \begin{equation}
 \label{eq:pv01_rf}
@@ -189,4 +189,82 @@ To determine the exact value of both legs, let’s analyse more in deep the flow
 </div>
 
 The investor has bought a bond at the dirty price ($$P_{ytm}$$), receives the coupons which forwards to the Bank but must also give to the bank the amount $$N-P_{ytm}$$ (usually N=100).
+
+The latter is an upfront payment which the investor must give to the bank because normal Swap contracts are paid on a notional of $$N$$ and so are the legs of the asset swap. Therefore, if the investor wants the bank to treat him as a classic swap buyer, must give to the bank the difference between the classic notional amount ($$N$$) and the capital he has invested ($$P_{ytm}$$). And it must give it upfront, because of course the Bank will want to make interest on this capital.
+
+The Bank receives the coupons and pays the Euribor (or Libor) + Asw spread. We already know that the Asw spread must include the difference between the coupon and the swap rate ($$c-R$$) but now we know that we must also include the fact that the bank has received an upfront capital $$ N-P_{ytm} $$.
+
+
+Indeed the bank must reimburse this capital which otherwise will represent a transfer of value from one side of the contract to the other. The Asw spread is therefore increased by
+
+$$
+ASW =(c-R)+\text{Something}
+$$
+
+\begin{equation}
+\label{eq:ASW_Spread_increase}
+ASW\;=\; (c-R)+ (N- P_{ytm})\times\frac{1}{100\times N \times PV01_{Rf}}
+\end{equation}
+
+
+where the second term is 1 over the present value of an annuity of value N and it is needed to convert a monetary amount ($$ N-P_{ytm} $$) into a rate.
+
+Another way of seeing it…
+
+We have just seen that the asset swap spread is defined as in \eqref{eq:ASW_Spread_increase}, but if we expand the definition, where the swap rate we know is defined as
+
+\begin{equation}
+\label{eq:Swap_rate}
+R\;=\; \frac{1-d_T}{\sum d_t}
+\end{equation}
+
+where $$d = \frac{1}{(1+r_t)^{t}} is the risk free discount rate. Also we know that $$ PV01 = 0.01\sum{d_t} $$ when $$N = 100$$, and as such we can write the asset swap as
+
+
+\begin{equation}
+\label{eq:ASW_1}
+ASW\;=\; c-[(1-d_t)\times N \times (N-P_{ytm})]+ \times\frac{1}{100\times N \times PV01_{Rf}}
+\end{equation}
+
+and
+
+\begin{equation}
+\label{eq:ASW_2}
+ASW\;=\; [c\times PV01 \times 100 \times N-(1-d_t) \times N + (N-P_{ytm})]+ \times\frac{1}{100\times N \times PV01_{Rf}}
+\end{equation}
+
+
+which simplifies to
+
+\begin{equation}
+\label{eq:ASW_3}
+ASW\;=\; [c\times N \times \sum{d_t}+d_T \times N-P_{ytm})]+ \times\frac{1}{100\times N \times PV01_{Rf}}
+\end{equation}
+
+Here we remember that $$ P_{rf} = c \times N \times \times \sum{d_t}+d_T \times N $$ and then we get
+
+\begin{equation}
+\label{eq:ASW_4}
+ASW\;=\; [P_{rf}-P_{ytm}]+ \times\frac{1}{N \times \sum{d_t}}
+\end{equation}
+
+
+which gives another definition of the Asw spread as the rate that must compensate the present value difference between the “fair” price of the bond (meaning priced as a pure risk free) and the price of the bond observed in the market via the yield to maturity.
+
+This definition consider the asset swap spread as a measure of riskiness of the bond, and therefore we expect results that are very close to the z-spread as written in the paragraph (“The present value of a zero one”). This explain why sometimes the asset swap spread is used as a measure of bonds pricing over the risk free rate.
+
+Let’s see a simple scenario: a bond that is very cheap compared to its peers (i.e. nobody wants it) will show a (relatively) high yield to maturity. Under another pricing formula this can also be seen as an higher z-spread ($$ z_t $$), because $$ P_{ytm}=P_{z_t} $$.
+
+ This means that the difference $$ P_{rf}-P_{ytm} $$ must be quite relevant, which implies an higher Asset swap spread.
+
+This is because the investor, is giving upfront to the bank the amount $$N-P_{ytm}$$ that in this case is relevant since the bond is cheap and $$P_{ytm}$$ is low; therefore the bank must compensate with an higher Asw spread.
+
+
+
+
+
+
+
+
+
 
