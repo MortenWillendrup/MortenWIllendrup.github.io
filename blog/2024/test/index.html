@@ -344,18 +344,18 @@ In an asset swap the investor keeps receiving the floating leg and paying the fi
 
 <p>Starting from these formulas we can increase the value of the coupon rate by one basis point, setting a new \(c_1 = c+0.01\) and see how the price changes. The PV01 is this change in price.</p>
 
-<p>Using formula (\eqref{eq:risk-free_discounting}) which becomes</p>
+<p>Using formula \eqref{eq:risk-free_discounting} which then becomes</p>
 
 <p>\begin{equation}
 \label{eq:risk-free_discounting_pv01}
- P^{1}_{rf}\;=\; \frac{\sum{c_1 \times N}}{(1+r_t)^t} + \frac{c_1\times N+N}{(1+r_T)^T}
+P^{1}_{rf}\;=\; \frac{\sum{c_1 \times N}}{(1+r_t)^t} + \frac{c_1\times N+N}{(1+r_T)^T}
 \end{equation}</p>
 
-<p>using (\eqref{eq:risk-free_discounting}) and (\eqref{eq:risk-free_discounting_pv01}), we can define \(PV01=P^{1}_{rf}-P_{rf)\) and with some algebractic adjustments we get</p>
+<p>using \eqref{eq:risk-free_discounting} and \eqref{eq:risk-free_discounting_pv01}, we can define \(PV01=P^{1}_{rf}-P_{rf)\) and with some algebractic adjustments we get</p>
 
 <p>\begin{equation}
 \label{eq:pv01<em>rf}
- PV01</em>{rf}\;=\; \sum{0.1}\frac{1}{(1+r_t)^t}
+PV01</em>{rf}\;=\; \sum{0.1}\frac{1}{(1+r_t)^t}
 \end{equation}</p>
 
 <h2 id="the-last-step">The Last Step</h2>
