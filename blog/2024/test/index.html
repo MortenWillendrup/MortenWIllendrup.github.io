@@ -319,7 +319,7 @@ In an asset swap the investor keeps receiving the floating leg and paying the fi
 
 <h3 id="the-present-value-of-a-zero-one">The Present Value of a zero-one</h3>
 
-<p>To give you a little bit of time to digest what we have said in the paragraphs above, I am going to review the concept of PV01.</p>
+<p>To give you a bit of time to digest what we have said in the paragraphs above, I am going to review the concept of PV01.</p>
 
 <p>We all know the definition of DV01 (if not you can have a look at here), which is the monetary change in the price of a bond given by a shift of 1 basis point in yield.</p>
 
@@ -327,7 +327,63 @@ In an asset swap the investor keeps receiving the floating leg and paying the fi
 
 <p>Starting from the formula to price (i.e. to discount) fixed known cash flows we can write</p>
 
-\[P_{rf}\;=\; \frac{\sum{c \times N}}{(1+r_t)^t} + \frac{c\times N+N}{(1+r_T)^T}\]
+<p>\begin{equation}
+\label{eq:risk-free_discounting}
+ P_{rf}\;=\; \frac{\sum{c \times N}}{(1+r_t)^t} + \frac{c\times N+N}{(1+r_T)^T}
+\end{equation}</p>
+
+<p>that is the theoretical price we should have if we discount all the cash flows using the risk free rate (\(r\)). However we are well aware of the fact that this is not the price we observe on the market because of credit and liquidity issues. Therefore we may use the yield to maturity (y)</p>
+
+\[P_{ytm}\;=\; \frac{\sum{c \times N}}{(1+y_t)^t} + \frac{c\times N+N}{(1+y_T)^T}\]
+
+<p>or the zeta spread, that is an additional curve which accounts for the riskiness of the bond</p>
+
+\[P_{zs}\;=\; \frac{\sum{c \times N}}{(1+r_t+z_t)^t} + \frac{c\times N+N}{(1+r_T+z_T)^T}\]
+
+<p>in any case it is obvious that \(P_{ytm}\;=\;P_{zs}\;=\;P_{Observed}\)</p>
+
+<p>Starting from these formulas we can increase the value of the coupon rate by one basis point, setting a new \(c_1 = c+0.01\) and see how the price changes. The PV01 is this change in price.</p>
+
+<p>Using formula (\eqref{eq:risk-free_discounting}) which becomes</p>
+
+<p>\begin{equation}
+\label{eq:risk-free_discounting_pv01}
+ P^{1}_{rf}\;=\; \frac{\sum{c_1 \times N}}{(1+r_t)^t} + \frac{c_1\times N+N}{(1+r_T)^T}
+\end{equation}</p>
+
+<p>using (\eqref{eq:risk-free_discounting}) and (\eqref{eq:risk-free_discounting_pv01}), we can define \(PV01=P^{1}_{rf}-P_{rf)\) and with some algebractic adjustments we get</p>
+
+<p>\begin{equation}
+\label{eq:pv01<em>rf}
+ PV01</em>{rf}\;=\; \sum{0.1}\frac{1}{(1+r_t)^t}
+\end{equation}</p>
+
+<h2 id="the-last-step">The Last Step</h2>
+
+<p>In Asset Swap, like in every other swap, the value at inception for the two parties must be null (if one side of the trade was more convenient than the other it wouldn’t be possible to close the trade, since everybody would want to sit on that side, on average). Therefore the value of the two legs must be equal.</p>
+
+<p>To determine the exact value of both legs, let’s analyse more in deep the flows behind the asset swap.</p>
+
+<div class="col-sm mt-3 mt-md-0">
+    <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Asset_Swap_7-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Asset_Swap_7-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Asset_Swap_7-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/Asset_Swap_7.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+</div>
+
+<p>The investor has bought a bond at the dirty price (\(P_{ytm}\)), receives the coupons which forwards to the Bank but must also give to the bank the amount \(N-P_{ytm}\) (usually N=100).</p>
 
 
     </div>
@@ -353,6 +409,18 @@ In an asset swap the investor keeps receiving the floating leg and paying the fi
   
 
   <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2024/asset_swap_definition/">Asset Swap Spread - A clear explanation</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2024/sidebar-table-of-contents/">Asset Swap Spread - A clear explanation</a>
+  </li>
+
+  
+
+  <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/test/">Lets talk about Fixed Income</a>
   </li>
 
@@ -360,18 +428,6 @@ In an asset swap the investor keeps receiving the floating leg and paying the fi
 
   <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/sidebar-table-of-contents/">a post with table of contents on a sidebar</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/tables/">displaying beatiful tables with Bootstrap Tables</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/table-of-contents/">a post with table of contents</a>
   </li>
 
 </div>
