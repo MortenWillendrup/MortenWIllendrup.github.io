@@ -2,7 +2,7 @@
 layout: page
 title: University
 permalink: /University/
-description: A small collection of notes from my time at University of Copenhagen and Copenhanges Buisness School
+description: A small collection of notes from my time at University of Copenhagen and Copenhagen Buisness School
 nav: true
 nav_order: 2
 display_categories: [work, fun]
