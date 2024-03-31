@@ -11,16 +11,16 @@ toc:
   sidebar: left
 ---
 
-## Part 1 - Overview of forward rate analysis
+### Part 1 - Overview of forward rate analysis
 
-## Part 2 - Market's Rate Expectations and Forward Rates
+### Part 2 - Market's Rate Expectations and Forward Rates
 
-## Part 3 - Does Duration Extension Enhance Long-Term Expected Returns
+### Part 3 - Does Duration Extension Enhance Long-Term Expected Returns
 
-## Part 4 - Forecasting U.S. Bond Returns
+### Part 4 - Forecasting U.S. Bond Returns
 
-## Part 5 - Convexity Bias and the Yield Curve
+### Part 5 - Convexity Bias and the Yield Curve
 
-## Part 6 - A Framework for Analyzing Yield Curve Trades
+### Part 6 - A Framework for Analyzing Yield Curve Trades
 
-## Part 7 - The Dynamic of the Shape of the Yield Curve
+### Part 7 - The Dynamic of the Shape of the Yield Curve
