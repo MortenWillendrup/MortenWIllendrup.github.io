@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding the yield curve review
-date: 2024-04-1 10:14:00-0400
+date: 2024-03-31 10:14:00-0400
 description: Review of the understanding the yield curve series by Antti Ilmanen
 categories: yield curve
 thumbnail: assets/img/yield_curve.jpg.jpg
