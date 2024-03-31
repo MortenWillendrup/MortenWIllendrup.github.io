@@ -6,7 +6,7 @@ description: This posts tells
 tags: formatting images
 categories: Fixed Income
 thumbnail: assets/img/Asset_Swap_front.jpg
-giscus_comments: true
+giscus_comments: false
 related_posts: false
 toc:
   sidebar: left
